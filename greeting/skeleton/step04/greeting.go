@@ -1,4 +1,3 @@
-// STEP04: 外部パッケージを使ってみよう
 package greeting
 
 import (
@@ -8,6 +7,7 @@ import (
 	"time"
 
 	// TODO: textパッケージのインポート
+	"github.com/tenntenn/greeting/v2/text"
 )
 
 // デフォルトの言語
@@ -29,6 +29,7 @@ func Do() {
 		fmt.Println(text.GoodMorning(lang))
 	case h >= 10 && h <= 16:
 		// TODO: text.Helloを使う
+		text.Hello(lang)
 	default:
 		// text.GoodEveningを使う
 		fmt.Println(text.GoodEvening(lang))
