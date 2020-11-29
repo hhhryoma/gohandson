@@ -11,5 +11,6 @@ func ExportSetLang(l language.Tag) func() {
 	lang = l
 	return func() {
 		// TODO: langを元に戻す
+		lang = orgLang
 	}
 }
