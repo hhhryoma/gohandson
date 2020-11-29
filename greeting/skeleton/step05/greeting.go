@@ -5,6 +5,7 @@ import (
 	// fmtパッケージのインポート
 	"fmt"
 	"io"
+
 	// timeパッケージのインポート
 	"time"
 
@@ -26,13 +27,14 @@ type ClockFunc func() time.Time
 // 関数にClockインタフェースを実装させる
 func (f ClockFunc) Now() time.Time {
 	// TODO: レシーバは関数なのでそのまま呼び出す
+	return f()
 }
 
 // 挨拶を行うための構造体型
 type Greeting struct {
 	// Clockインタフェースをフィールドに持つことで
 	// 時刻の取得を抽象化する
-	Clock /* TODO: 型を書く */
+	Clock /* TODO: 型を書く */ Clock
 }
 
 // 現在時刻を取得する
@@ -41,8 +43,10 @@ type Greeting struct {
 func (g *Greeting) now() time.Time {
 	if g.Clock == nil {
 		// TODO: time.Now()の値を使う
+		return time.Now()
 	}
 	// TODO: g.Clock.Now()の値を使う
+	return g.Clock.Now()
 }
 
 // Do関数の定義
